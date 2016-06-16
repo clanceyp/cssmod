@@ -1,15 +1,17 @@
 @import 'setup.css';
 @import 'hint.css';
 
-$color1: #2B54D0;
+$color1: #41ba11;
 $color2: #1A8896;
 $color3: #01B0C5;
 $color4: #53EBF3;
 $color5: #B4B9BC;
 $color6: #FDFDFD;
 $color7: #EAEEF1;
-$colorList: #4B73EB;
+$color8: #0e5e10;
+$colorList: #41ba11;
 $light: #fff;
+$colorbutton: #222;
 
 $baseFont: "proxima-nova", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $headerFont: "brandon-grotesque", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -174,12 +176,12 @@ pre, code {
 }
 
 header.top {
-  background: linear-gradient(45deg, #354052, #28313D);
+  background-color: $color8;
   color: white;
   flex: 1 0 180px;
   position: relative;
   .logo {
-    background: #4B73EB;
+    background-color: $colorbutton;
     display: inline-block;
     width: 100%;
     padding: 1.5rem 1.8rem;
@@ -217,7 +219,7 @@ header.top {
       padding: 14px 18px;
       font-size: 1.2rem;
       line-height: 1.4;
-      background: #4B73EB;
+      background: $colorbutton;
       cursor: pointer;
     }
   }
@@ -226,7 +228,7 @@ header.top {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: #28313D;
+    background: $colorbutton;
     text-align: center;
     p {
       text-align: center;
@@ -311,10 +313,10 @@ input::-webkit-inner-spin-button {
 
 input[type=submit].submit {
   font-size: 1.4rem;
-  background: #354052;
+  background: $colorbutton;
   text-transform: uppercase;
   font-family: $headerFont;
-  border: 2px solid #354052;
+  border: 2px solid $colorbutton;
   color: white;
   width: 100%;
   padding: 1.4rem 0;
@@ -350,7 +352,7 @@ header.controls {
     display: inline-block;
     padding: 1.2rem;
     font-size: 1.2rem;
-    background: #354052;
+    background: $colorbutton;
     color: white;
     cursor: pointer;
     font-family: $headerFont;
