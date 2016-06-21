@@ -1,0 +1,119 @@
+pre {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+article ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  counter-reset: section;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+article ul:after {
+  clear: both;
+  content: " ";
+  display: block;
+  height: 1px;
+}
+
+article li {
+  border: 3px solid white;
+  border-radius: 6px;
+  background-color: green;
+  color: white;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  text-align: center;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+article li:before {
+  counter-increment: section;
+  content: counters(section, ".");
+}
+
+article > div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+article > div > section {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+}
+
+article .btn,article [type=range] {
+  margin-bottom: .3rem;
+  width: 100%;
+}
+
+article section > :first-child {
+  margin-top: 0;
+}
+
+article section ul {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+article section pre {
+  padding: 5px;
+}
+
+@media (min-width: 768px) {
+  body .container {
+    width: auto;
+  }
+
+  article > div {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  article section:first-child {
+    padding-right: 1rem;
+  }
+
+  article section:last-child {
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  body .container {
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  body .container {
+    width: auto;
+  }
+}
