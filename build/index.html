@@ -6,6 +6,7 @@
 		<title>Navbar Static top Template</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="icon" href="/images/favicon.png">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/darkula.min.css">
@@ -14,26 +15,73 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="css/styles.css" rel="stylesheet">
+        <!-- see http://codepo8.github.com/css-fork-on-github-ribbon/ -->
+        <style>#forkongithub {display:block;width:100%} #forkongithub a{background:#005;color:#fff;display:block;text-decoration:none;font-family:arial, sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#060;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:768px){#forkongithub{position:absolute;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;}#forkongithub a{width:200px;position:absolute;top:30px;right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}</style>
 	</head>
 	<body>
+    <!--
         <header class="navbar navbar-default navbar-static-top">
-          <div class="container">
-
-          </div>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
-
+    -->
         <main class="container">
-            <div class="text-center">
+            <header class="text-center">
                 <h1>Tidy list using Mod Queries and Range Selectors</h1>
                 <p class="lead">
-                    The query will be reflected on the items below by a changing the width of items.<br/>
-                    Add and remove items to see the styling be applied when the query matches.
+                    This demo is based on my list apart-icle <a>CSS Mod Queries and Range Selectors</a>
+                    <br/>
+                    The CSS query matches a Mod and styles the remainder accordingly.
                 </p>
-            </div>
-            <article></article>
+                <p>
+                    The queries will style the items near the top of the list so the last line
+                    is always tidy and you'll never get orphans at the end of the list.
+                </p>
+                <p>
+                    Use the form below to to set the mod and add / remove list items.
+                    Check the generated CSS to see how the list works.
+                </p>
+            </header>
+            <article>
+                <div class="explanation">
+                    <hr>
+                    <p>The queries generated are as follows</p>
+                    <dl>
+                        <dt>First two items</dt>
+                        <dd>First item is always 100% wide, the second child is 50% if there are only two items</dd>
+                        <dt>Remainder 0</dt>
+                        <dd>As first item is 100%, the second row items have a width of 100%/mod-1</dd>
+                        <dt>Remainder 1</dt>
+                        <dd>No action needed, the default width for all items plus the first item</dd>
+                        <dt>Remainder 2</dt>
+                        <dd>Second row has two 50% width items, third row has width of 100%/mod-1</dd>
+                        <dt>Remainder 3</dt>
+                        <dd>Third row itmes have width 100%/mod </dd>
+                        <dt>Remainder &gt; 3</dt>
+                        <dd>Second row fills up</dd>
+                    </dl>
+                </div>
+            </article>
         </main><!-- /.container -->
+        <aside id="forkongithub"><a href="https://github.com/clanceyp/cssmod">Fork me on GitHub</a></aside>
 
-
+        <span class="mediaquery"></span>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="scripts/vendor/bootstrap.min.js"></script>
         <script src="scripts/vendor/react.min.js"></script>

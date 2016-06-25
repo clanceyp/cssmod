@@ -1,31 +1,63 @@
-@media (min-width: 1200px) {
-    body .container {
-        width: auto;
+$column-margin : 1.6rem;
+$list-color: #080;
+$list-text-color: #fff;
+$list-spacing: 8px;
+$border-rad: 4px;
+$margin: 2rem;
+
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xlg-min: 1600px;
+
+@mixin break-prop($prop,$map) {
+    @each $el,$val in $map {
+        @if($el == "default") {
+            #{$prop} : $val;
+        }
+        @else {
+            @media only screen and ( min-width: $el ) {
+                #{$prop} : $val;
+            }
+        }
     }
 }
-@media (min-width: 992px) {
-    body .container {
-        width: auto;
+@mixin break-width($w) {
+    @media only screen and (min-width: $w) {
+        @content
     }
 }
-@media (min-width: 768px){
-    body .container {
-        width: auto;
+
+body {
+    .container {
+        @include break-prop("width", (
+            default : auto,
+            $screen-sm-min : auto,
+            $screen-md-min : auto,
+            $screen-lg-min : auto
+        ));
+    }
+    .mediaquery {
+        @include break-prop("font-family", (
+            default : "default",
+            $screen-sm-min : screen-sm-min,
+            $screen-md-min : screen-md-min,
+            $screen-lg-min : screen-lg-min,
+            $screen-xlg-min : screen-xlg-min,
+        ));
     }
 }
-@media (min-width: 768px){
-    article > div {
-        flex-direction: row;
-    }
-    article section:first-child {
-        padding-right: 1rem;
-    }
-    article section:last-child {
-        padding-left: 1rem;
-    }
+h2 {
+    font-size: 2rem;
+    margin-top: 0;
 }
 pre {
     tab-size: 4;
+}
+main {
+    header {
+        padding: 0 0 $margin 0;
+    }
 }
 article {
     ul {
@@ -34,7 +66,7 @@ article {
         flex-flow: row wrap;
         list-style: none;
         margin: 0;
-        padding: 10px 0 0 0;
+        padding: 0;
         &:after {
             clear: both;
             content: " ";
@@ -43,43 +75,115 @@ article {
         }
     }
     li {
-        border: 3px solid white;
-        border-radius: 6px;
-        background-color: green;
-        color: white;
-        margin-bottom: 10px;
-        padding: 8px 0;
+        margin-bottom: $list-spacing;
+        padding: 0 $list-spacing/2;
         text-align: center;
         transition: all 0.7s;
         &:before {
+            @include break-prop("padding", (
+                default    : 18px 0,
+                $screen-sm-min : 18px 0 ,
+                $screen-md-min : 12px 0 ,
+                $screen-lg-min : 20px 0 ,
+                $screen-xlg-min : 28px 0
+            ));
+            background-color: $list-color;
+            border: 1px solid lighten($list-color, 5%);
+            border-radius: $border-rad;
+            color: $list-text-color;
             counter-increment: section;
-            content: counters(section,".")
+            content: counters(section,".");
+            display: block;
+        }
+        &:first-child:before {
+            @include break-prop("padding", (
+                default    : 32px 0,
+                $screen-sm-min : 32px 0 ,
+                $screen-md-min : 24px 0 ,
+                $screen-lg-min : 40px 0 ,
+                $screen-xlg-min : 56px 0
+            ));
+            font-size: 115%;
         }
     }
     > div {
+        @include break-prop("flex-direction", (
+            default: column,
+            $screen-sm-min : row
+        ));
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
     }
     > div > section {
         flex-grow: 1;
         flex-shrink: 0;
-        flex-basis: 30%;
+        &:nth-child(1) {
+            @include break-prop("flex-basis", (
+                $screen-sm-min : 50%,
+                $screen-md-min : 33%
+            ));
+            @include break-prop("order", (
+                default: 2,
+                $screen-sm-min : 1
+            ));
+            @include break-prop("padding", (
+                default    : 0 0 $margin 0,
+                $screen-sm-min : 0 $margin $margin 0
+            ));
+        }
+        &:nth-child(2) {
+            @include break-prop("flex-basis", (
+                $screen-sm-min : 50%,
+                $screen-md-min : 33%
+            ));
+            @include break-prop("order", (
+                default: 1,
+                $screen-sm-min : 2
+            ));
+            padding: 0 0 $margin 0;
+        }
+        &:nth-child(3) {
+            order: 3;
+            @include break-prop("flex-basis", (
+                $screen-sm-min : 100%,
+                $screen-md-min : 33%
+            ));
+            @include break-prop("padding", (
+                default    : 0 0 $margin 0,
+                $screen-md-min : 0 0 $margin $margin
+            ));
+        }
     }
     & .btn,
     & [type=range] {
-        margin-bottom: .3rem;
+        margin-bottom: $margin/3;
         width: 100%;
     }
     section {
-        > :first-child {
-            margin-top: 0;
-        }
+        padding-bottom: $margin;
         ul {
             margin-top: 0;
             padding-top: 0;
-        } pre {
-            padding: 5px;
+        }
+        pre {
+            padding: 0;
+            code {
+                border-radius: $border-rad;
+            }
+        }
+        .border {
+            border: 1px solid #ccc;
+            border-radius: $border-rad;
+        }
+        dd {
+            padding-left: $margin;
         }
     }
 }
-
+.hljs {
+    color: white;
+}
+.padding {
+    padding: $margin;
+}
