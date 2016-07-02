@@ -20,6 +20,22 @@ main header {
   padding: 0 0 2rem 0;
 }
 
+footer .container {
+  padding: 3rem;
+}
+
+footer span:first-child {
+  display: block;
+  margin-bottom: 4px;
+}
+
+footer .border-right {
+  display: inline-block;
+  padding: 0 10px 0 0;
+  border-right: 1px solid green;
+  margin-right: 4px;
+}
+
 article ul {
   display: -webkit-box;
   display: -webkit-flex;
