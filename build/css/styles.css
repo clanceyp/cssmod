@@ -172,6 +172,34 @@ article section dd {
   padding: 2rem;
 }
 
+.usefull-links {
+  background-image: url(https://cdn.shopify.com/s/files/1/0945/3232/files/pandas-01-800.png), url("https://cdn.shopify.com/s/files/1/0734/7211/files/ricepaper2_c4db4e24-1efb-4828-8d83-f56ec1423c5c.png?7313985856428219858");
+  background-position: 98% 100%, 0 0;
+  background-repeat: no-repeat, repeat;
+  background-size: 180px, auto;
+  border: 1px solid silver;
+  border-radius: 4px;
+  margin: 15px;
+  padding: 2rem 0;
+}
+
+.usefull-links dl {
+  -webkit-columns: 1 0px;
+  -moz-columns: 1 0px;
+  columns: 1 0px;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.usefull-links dt,.usefull-links h2 {
+  margin: 1rem 1rem 1rem 2rem;
+}
+
 @media only screen and (min-width: 768px) {
   body .container {
     width: auto;
@@ -232,6 +260,12 @@ article section dd {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
   }
+
+  .usefull-links dl {
+    -webkit-columns: 2 200px;
+    -moz-columns: 2 200px;
+    columns: 2 200px;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -271,6 +305,18 @@ article section dd {
 
   article > div > section:nth-child(3) {
     padding: 0 0 2rem 2rem;
+  }
+
+  .usefull-links dl {
+    -webkit-columns: 3 200px;
+    -moz-columns: 3 200px;
+    columns: 3 200px;
+  }
+
+  .usefull-links dl {
+    -webkit-columns: 3 200px;
+    -moz-columns: 3 200px;
+    columns: 3 200px;
   }
 }
 

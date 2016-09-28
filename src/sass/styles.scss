@@ -4,6 +4,7 @@ $list-text-color: #fff;
 $list-spacing: 8px;
 $border-rad: 4px;
 $margin: 2rem;
+$bootstrap-gutter: 15px;
 
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
@@ -201,4 +202,34 @@ article {
 }
 .padding {
     padding: $margin;
+}
+.usefull-links {
+    background-image: url(https://cdn.shopify.com/s/files/1/0945/3232/files/pandas-01-800.png), url("https://cdn.shopify.com/s/files/1/0734/7211/files/ricepaper2_c4db4e24-1efb-4828-8d83-f56ec1423c5c.png?7313985856428219858");
+    background-position: 98% 100%, 0 0;
+    background-repeat: no-repeat, repeat;
+    background-size: 180px, auto;
+    border: 1px solid silver;
+    border-radius: $border-rad;
+    margin: $bootstrap-gutter;
+    padding: $margin 0;
+    dl {
+        @include break-prop("columns", (
+            default    : 1 0px,
+            $screen-sm-min : 2 200px,
+            $screen-md-min : 3 200px
+        ));
+        hyphens: auto;
+        margin: 0;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    dt, h2 {
+        margin: $margin/2 $margin/2 $margin/2 $margin;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .usefull-links dl {
+        columns: 3 200px;
+    }
 }

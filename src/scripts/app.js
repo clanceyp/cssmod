@@ -2,9 +2,9 @@
 
 const App = React.createClass({
 	getInitialState() {
-		let mod = 5;
+		let mod = 3;
 		return {
-			items: Array.apply(null, Array(mod)).map(function () {}),
+			items: Array.apply(null, Array(mod*2)).map(function () {}),
 			mod: mod
 		}
 	},
@@ -14,7 +14,7 @@ const App = React.createClass({
 	},
 	updateMod(e) {
 		let mod = parseInt(e.target.value),
-			arr = Array.apply(null, Array(mod)).map(function () {});
+			arr = Array.apply(null, Array(mod*2)).map(function () {});
 		this.setState({
 			mod: mod,
 			items: arr
