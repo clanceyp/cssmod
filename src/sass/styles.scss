@@ -50,7 +50,11 @@ body {
 }
 h2 {
     font-size: 2rem;
+    font-weight: normal;
     margin-top: 0;
+}
+hr {
+    opacity: .5;
 }
 pre {
     tab-size: 4;

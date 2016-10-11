@@ -116,6 +116,8 @@ li:nth-last-child(${mod}n+2):first-child ~ li:nth-child(n+2):nth-child(-n+3) {
 							   onChange={this.updateMod}
 							   value={this.state.mod}
 							   autoFocus  />
+						<hr />
+						<h2>Add/remove list items</h2>
 						<div>
 							<button onClick={this.addItem} className="btn btn-default"><span className="fa fa-plus-circle "></span> Add Item</button>
 							<button onClick={this.removeItem} className="btn btn-default"><span className="fa fa-minus-circle"></span> Remove Item</button>
